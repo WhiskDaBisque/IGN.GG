@@ -1,6 +1,6 @@
 async function searchPlayerIGN(ign) {
     try {
-      const riotAPIKey = 'YRGAPI-eb032dd0-f32e-4134-a043-0b46dba0aa80';
+      const riotAPIKey = 'RGAPI-c3a956de-8e16-447c-ae6c-cc6874646b64';
       const riotAPIURL = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${ign}?api_key=${riotAPIKey}`;
   
       const response = await fetch(riotAPIURL);
