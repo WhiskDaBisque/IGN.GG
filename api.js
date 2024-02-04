@@ -22,7 +22,5 @@ async function fetchSummonerByName(summonerName) {
       throw error;
     }
   }
-  
-const summonerName = 'beyondninja'; // Replace with user input
-const summonerData = await fetchSummonerByName(summonerName);
-console.log(summonerData);
+
+console.log("api.js loaded");
