@@ -1,7 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Summoner Name to Riot ID</title>
+    <title>Summoner Name to match history</title>
+    <script src="api.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const summonerForm = document.getElementById("summonerForm");
+
+            summonerForm.addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const summonerNameInput = document.getElementById("summonerName");
+                const summonerName = summonerNameInput.value.trim();
+
+                if (summonerName) {
+                    try {
+                        const summonerData = await fetchSummonerByName(summonerName);
+                        // Handle the summoner data as needed
+                        console.log(summonerData);
+                    } catch (error) {
+                        // Handle errors
+                        console.error(error.message);
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <form id="summonerForm">
@@ -9,20 +33,5 @@
         <input type="text" id="summonerName" name="summonerName">
         <button type="submit">Submit</button>
     </form>
-    <div id="result"></div>
-    <script>
-        document.getElementById('summonerForm').addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const summonerName = document.getElementById('summonerName').value;
-            const apiKey = 'RGAPI-c3a956de-8e16-447c-ae6c-cc6874646b64';
-            const response = await fetch(`https://euw1.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${summonerName}?api_key=${apiKey}`);
-            if (response.ok) {
-                const data = await response.json();
-                document.getElementById('result').innerHTML = `Riot ID: ${data.riotId}<br>Summoner Name: ${data.summonerName}`;
-            } else {
-                document.getElementById('result').innerHTML = 'Error: Unable to fetch data from the Riot Games API.';
-            }
-        });
-    </script>
 </body>
 </html>
