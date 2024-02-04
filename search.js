@@ -3,10 +3,11 @@ const resultDiv = document.getElementById('result');
 
 form.addEventListener('submit', event => {
   event.preventDefault();
+  const region = document.getElementById('region').value;
   const summonerName = document.getElementById('summoner-name').value;
   const apiKey = 'RGAPI-c3a956de-8e16-447c-ae6c-cc6874646b64';
 
-  fetch(`https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${apiKey}`)
+  fetch(`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${apiKey}`)
     .then(response => response.json())
     .then(data => {
       resultDiv.innerHTML = `
