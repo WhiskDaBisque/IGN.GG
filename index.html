@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Player Search</title>
-  </head>
-  <body>
-    <h1>Player Search</h1>
-    <input type="text" id="search-box" placeholder="Enter player IGN" />
-    <button id="search-button">Search</button>
-    <div id="search-results"></div>
-    <script src="search.js"></script>
-  </body>
+<head>
+  <title>Summoner Lookup</title>
+</head>
+<body>
+  <h1>Summoner Lookup</h1>
+  <form id="summoner-form">
+    <label for="summoner-name">Enter summoner name:</label>
+    <input type="text" id="summoner-name" name="summoner-name">
+    <button type="submit">Search</button>
+  </form>
+  <div id="result"></div>
+  <script src="search.js"></script>
+</body>
 </html>
